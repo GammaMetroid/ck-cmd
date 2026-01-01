@@ -3350,7 +3350,7 @@ hkRefPtr<hkpShape> HKXWrapper::build_shape(
 		shapeBuilder.m_stripperPasses = 5000;
 		shapeBuilder.m_weldVertices = true;
 		shapeBuilder.m_weldTolerance = 0.001f;
-		hkpCompressedMeshShape* pCompMesh = shapeBuilder.createMeshShape(0.001f, hkpCompressedMeshShape::MATERIAL_SINGLE_VALUE_PER_CHUNK);
+		hkpCompressedMeshShape* pCompMesh = shapeBuilder.createMeshShape(0.001f, hkpCompressedMeshShape::MATERIAL_SINGLE_VALUE_PER_CHUNK, 23);
 		pCompMesh->m_namedMaterials.setSize(materials.size());
 		for (int i = 0; i < materials.size(); i++)
 			pCompMesh->m_namedMaterials[i] = materials[i];
