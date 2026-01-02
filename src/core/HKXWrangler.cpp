@@ -3347,7 +3347,7 @@ hkRefPtr<hkpShape> HKXWrapper::build_shape(
 	if (ends_with(name, "_mesh"))
 	{
 		hkpCompressedMeshShapeBuilder			shapeBuilder;
-		shapeBuilder.m_overlapRatio = 0.75f;
+		shapeBuilder.m_overlapRatio = 0.2f;
 		shapeBuilder.m_stripperPasses = 5000;
 		shapeBuilder.m_weldVertices = true;
 		shapeBuilder.m_weldTolerance = 0.001f;
