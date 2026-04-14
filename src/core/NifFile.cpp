@@ -5,7 +5,7 @@ See the included LICENSE file
 */
 
 #include <core/NifFile.h>
-#include <gui/src/hkx/ResourceManager.h>
+#include <core/hkcrc.h>
 
 using namespace ckcmd::NIF;
 
@@ -17,6 +17,13 @@ Ref<T> NifFile::FindBlockByName(const std::string& name) {
 			return namedBlock;
 	}
 	return NULL;
+}
+
+long long crc32(std::string& to_crc)
+{
+	transform(to_crc.begin(), to_crc.end(), to_crc.begin(), ::tolower);
+	long long crc = stoll(HkCRC::compute(to_crc), NULL, 16);
+	return crc;
 }
 
 /*! Values for configuring the shader type in a BSLightingShaderProperty */
@@ -411,7 +418,7 @@ SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_MATERIAL_BLUNT_2HAND") return SKY_HAV_MAT_MATERIAL_BLUNT_2HAND;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM") return SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM;
 
-	return (SkyrimHavokMaterial)ResourceManager::crc_32_ll(name);
+	return (SkyrimHavokMaterial)crc32(name);
 }
 
 const char* NifFile::layer_name(const SkyrimLayer& layer) {

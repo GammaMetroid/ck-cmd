@@ -113,9 +113,6 @@ namespace ckcmd {
 			std::set<Sk::AACTRecord*> actions();
 			std::set<Sk::IDLERecord*> idles(size_t index);
 
-			long long crc_32_ll(std::string& to_crc);
-			std::string crc_32(std::string& to_crc);
-
 			//fs::path ResourceManager::open(const std::string& project);
 
 			int index(const fs::path& file) const;
