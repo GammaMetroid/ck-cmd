@@ -19,10 +19,11 @@ Ref<T> NifFile::FindBlockByName(const std::string& name) {
 	return NULL;
 }
 
-long long crc32(std::string to_crc)
+long long crc32(std::string& to_crc)
 {
 	transform(to_crc.begin(), to_crc.end(), to_crc.begin(), ::tolower);
-	long long crc = stoll(HkCRC::compute(to_crc), NULL, 16);
+	HkCRC hkcrc_obj;
+	long long crc = stoll(hkcrc_obj.compute(to_crc), NULL, 16);
 	return crc;
 }
 
