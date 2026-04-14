@@ -19,7 +19,7 @@ Ref<T> NifFile::FindBlockByName(const std::string& name) {
 	return NULL;
 }
 
-long long crc32(std::string& to_crc)
+long long crc32(std::string to_crc)
 {
 	transform(to_crc.begin(), to_crc.end(), to_crc.begin(), ::tolower);
 	HkCRC hkcrc_obj;
@@ -100,8 +100,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	case SKY_HAV_MAT_WOOD: return { 0.65, 0.50, 0.39 };
 	//#declare Flesh = color red 0.96 green 0.80 blue 0.69
 	case SKY_HAV_MAT_SKIN: return { 0.96, 0.80, 0.69 };
-	//#declare Scarlet = color red 0.55 green 0.09 blue 0.09
-	case SKY_HAV_MAT_UNKNOWN_617099282: return { 0.55, 0.09, 0.09 };
 	//#declare Maroon = color red 0.556863 green 0.137255 blue 0.419608
 	case SKY_HAV_MAT_BARREL: return { 0.556863, 0.137255, 0.419608 };
 	//#declare Quartz = color red 0.85 green 0.85 blue 0.95
@@ -114,8 +112,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	case SKY_HAV_MAT_STAIRS_STONE: return { 0.90, 0.91, 0.98 };
 	//#declare MediumAquamarine = color red 0.196078 green 0.8 blue 0.6
 	case SKY_HAV_MAT_WATER: return { 0.196078, 0.8, 0.6 };
-	//#declare NewTan = color red 0.92 green 0.78 blue 0.62
-	case SKY_HAV_MAT_UNKNOWN_1028101969: return { 0.92, 0.78, 0.62 };
 	//#declare NavyBlue = color red 0.137255 green 0.137255 blue 0.556863
 	case SKY_HAV_MAT_MATERIAL_BLADE_1HAND: return { 0.137255, 0.137255, 0.556863 };
 	//#declare BakersChoc = color red 0.36 green 0.20 blue 0.09
@@ -126,8 +122,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	case SKY_HAV_MAT_SOLID_METAL: return { 0.82, 0.57, 0.46 };
 	//#declare DkGreenCopper = color red 0.29 green 0.46 blue 0.43
 	case SKY_HAV_MAT_MATERIAL_AXE_1HAND: return { 0.29, 0.46, 0.43 };
-	//#declare Very_Light_Purple = colour red 0.94 green 0.81 blue 0.99
-	case SKY_HAV_MAT_UNKNOWN_1440721808: return { 0.94, 0.81, 0.99 };
 	//#declare YellowGreen = color red 0.6 green 0.8 blue 0.196078
 	case SKY_HAV_MAT_STAIRS_WOOD: return { 0.6, 0.8, 0.196078 };
 	//#declare DarkWood = color red 0.52 green 0.37 blue 0.26
@@ -138,10 +132,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	case SKY_HAV_MAT_STAIRS_SNOW: return { 0.196078, 0.6, 0.8 };
 	//#declare DarkTan = color red 0.59 green 0.41 blue 0.31
 	case SKY_HAV_MAT_HEAVY_STONE: return { 0.59, 0.41, 0.31 };
-	//#declare Med_Purple = colour red 0.73 green 0.16 blue 0.96
-	case SKY_HAV_MAT_UNKNOWN_1574477864: return { 0.73, 0.16, 0.96 };
-	//#declare Light_Purple = colour red 0.87 green 0.58 blue 0.98
-	case SKY_HAV_MAT_UNKNOWN_1591009235: return { 0.87, 0.58, 0.98 };
 	//#declare DarkBrown = color red 0.36 green 0.25 blue 0.20
 	case SKY_HAV_MAT_MATERIAL_BOWS_STAVES: return { 0.36, 0.25, 0.20 };
 	//#declare Bronze2 = color red 0.65 green 0.49 blue 0.24
@@ -160,8 +150,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	case SKY_HAV_MAT_SAND: return { 0.847059, 0.847059, 0.74902};
 	//#declare SteelBlue = color red 0.137255 green 0.419608 blue 0.556863
 	case SKY_HAV_MAT_HEAVY_METAL: return { 0.137255, 0.419608, 0.556863 };
-	//#declare SpicyPink = color red 1.00 green 0.11 blue 0.68
-	case SKY_HAV_MAT_UNKNOWN_2290050264: return {1.0, 0.11, 0.68};
 	//#declare BrightGold = color red 0.85 green 0.85 blue 0.10
 	case SKY_HAV_MAT_DRAGON: return { 0.85, 0.85, 0.10 };
 	//#declare GreenCopper = color red 0.32 green 0.49 blue 0.46
@@ -203,8 +191,6 @@ std::array<double, 3> NifFile::material_color(const SkyrimHavokMaterial& materia
 	//#declare MidnightBlue = color red 0.184314 green 0.184314 blue 0.309804
 	case SKY_HAV_MAT_MATERIAL_BLUNT_2HAND: return { 0.184314, 0.184314, 0.309804 };
 	//#declare VioletRed = color red 0.8 green 0.196078 blue 0.6
-	case SKY_HAV_MAT_UNKNOWN_4239621792: return { 0.8, 0.196078, 0.6 };
-	//#declare Salmon = color red 0.435294 green 0.258824 blue 0.258824
 	case SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM: return { 0.435294, 0.258824, 0.258824 };
 	}
 	//red
@@ -302,41 +288,63 @@ const char* NifFile::skyrimFlags2_name(int mask)
 const char* NifFile::material_name(const SkyrimHavokMaterial& material) {
 	switch (material) {
 		case SKY_HAV_MAT_BROKEN_STONE: return "SKY_HAV_MAT_BROKEN_STONE";
+		case 165778930: return "SKY_HAV_MAT_WEAPON_BLADE_1HAND_BLOCK";
+		case 220124585: return "SKY_HAV_MAT_MEAT";
+		case 322207473: return "SKY_HAV_MAT_CARRIAGE_WHEEL";
+		case 346811165: return "SKY_HAV_MAT_METAL_LIGHT";
 		case SKY_HAV_MAT_LIGHT_WOOD: return "SKY_HAV_MAT_LIGHT_WOOD";
 		case SKY_HAV_MAT_SNOW: return "SKY_HAV_MAT_SNOW";
 		case SKY_HAV_MAT_GRAVEL: return "SKY_HAV_MAT_GRAVEL";
 		case SKY_HAV_MAT_MATERIAL_CHAIN_METAL: return "SKY_HAV_MAT_MATERIAL_CHAIN_METAL";
 		case SKY_HAV_MAT_BOTTLE: return "SKY_HAV_MAT_BOTTLE";
 		case SKY_HAV_MAT_WOOD: return "SKY_HAV_MAT_WOOD";
+		case 534864873: return "SKY_HAV_MAT_ASH";
+		case 551270354: return "SKY_HAV_MAT_STAIRS_METAL";
 		case SKY_HAV_MAT_SKIN: return "SKY_HAV_MAT_SKIN";
+		case 593401068: return "SKY_HAV_MAT_WEAPON_BLUNT_1HAND_BLOCK";
+		case 668408902: return "SKY_HAV_MAT_INSECT";
 		case SKY_HAV_MAT_BARREL: return "SKY_HAV_MAT_BARREL";
 		case SKY_HAV_MAT_MATERIAL_CERAMIC_MEDIUM: return "SKY_HAV_MAT_MATERIAL_CERAMIC_MEDIUM";
 		case SKY_HAV_MAT_MATERIAL_BASKET: return "SKY_HAV_MAT_MATERIAL_BASKET";
 		case SKY_HAV_MAT_ICE: return "SKY_HAV_MAT_ICE";
+		case 880200008: return "SKY_HAV_MAT_STAIRS_GLASS";
 		case SKY_HAV_MAT_STAIRS_STONE: return "SKY_HAV_MAT_STAIRS_STONE";
+		case 1003342536: return "SW_HAV_MAT_THROWING_KNIFE";
 		case SKY_HAV_MAT_WATER: return "SKY_HAV_MAT_WATER";
 		case SKY_HAV_MAT_MATERIAL_BLADE_1HAND: return "SKY_HAV_MAT_MATERIAL_BLADE_1HAND";
 		case SKY_HAV_MAT_MATERIAL_BOOK: return "SKY_HAV_MAT_MATERIAL_BOOK";
 		case SKY_HAV_MAT_MATERIAL_CARPET: return "SKY_HAV_MAT_MATERIAL_CARPET";
 		case SKY_HAV_MAT_SOLID_METAL: return "SKY_HAV_MAT_SOLID_METAL";
 		case SKY_HAV_MAT_MATERIAL_AXE_1HAND: return "SKY_HAV_MAT_MATERIAL_AXE_1HAND";
+		case 1312943906: return "SKY_HAV_MAT_WEAPON_BLADE_2HAND_BLOCK";
+		case 1322093133: return "SKY_HAV_MAT_ORGANIC_LARGE";
 		case SKY_HAV_MAT_STAIRS_WOOD: return "SKY_HAV_MAT_STAIRS_WOOD";
 		case SKY_HAV_MAT_MUD: return "SKY_HAV_MAT_MUD";
 		case SKY_HAV_MAT_MATERIAL_BOULDER_SMALL: return "SKY_HAV_MAT_MATERIAL_BOULDER_SMALL";
 		case SKY_HAV_MAT_STAIRS_SNOW: return "SKY_HAV_MAT_STAIRS_SNOW";
 		case SKY_HAV_MAT_HEAVY_STONE: return "SKY_HAV_MAT_HEAVY_STONE";
+		case 1574477864: return "SKY_HAV_MAT_CHARACTER_BUMPER";
+		case 1591009235: return "SKY_HAV_MAT_TRAP";
 		case SKY_HAV_MAT_MATERIAL_BOWS_STAVES: return "SKY_HAV_MAT_MATERIAL_BOWS_STAVES";
+		case 1730220269: return "SKY_HAV_MAT_ALDUIN";
+		case 1763418903: return "SKY_HAV_MAT_WEAPON_BOWS_AND_STAVES_BLOCK";
 		case SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS: return "SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS";
 		case SKY_HAV_MAT_GRASS: return "SKY_HAV_MAT_GRASS";
 		case SKY_HAV_MAT_MATERIAL_BOULDER_LARGE: return "SKY_HAV_MAT_MATERIAL_BOULDER_LARGE";
 		case SKY_HAV_MAT_MATERIAL_STONE_AS_STAIRS: return "SKY_HAV_MAT_MATERIAL_STONE_AS_STAIRS";
 		case SKY_HAV_MAT_MATERIAL_BLADE_2HAND: return "SKY_HAV_MAT_MATERIAL_BLADE_2HAND";
 		case SKY_HAV_MAT_MATERIAL_BOTTLE_SMALL: return "SKY_HAV_MAT_MATERIAL_BOTTLE_SMALL";
+		case 2058949504: return "SKY_HAV_MAT_BONE_ACTOR";
 		case SKY_HAV_MAT_SAND: return "SKY_HAV_MAT_SAND";
 		case SKY_HAV_MAT_HEAVY_METAL: return "SKY_HAV_MAT_HEAVY_METAL";
+		case 2431524493: return "SKY_HAV_MAT_ICE_FORM";
 		case SKY_HAV_MAT_DRAGON: return "SKY_HAV_MAT_DRAGON";
 		case SKY_HAV_MAT_MATERIAL_BLADE_1HAND_SMALL: return "SKY_HAV_MAT_MATERIAL_BLADE_1HAND_SMALL";
 		case SKY_HAV_MAT_MATERIAL_SKIN_SMALL: return "SKY_HAV_MAT_MATERIAL_SKIN_SMALL";
+		case 2646218569: return "SW_HAV_MAT_METAL_GRATE";
+		case 2742858142: return "SKY_HAV_MAT_POTS_AND_PANS";
+		case 2821299363: return "SKY_HAV_MAT_SKIN_SKELETON";
+		case 2872791301: return "SKY_HAV_MAT_WEAPON_BLUNT_1HAND";
 		case SKY_HAV_MAT_STAIRS_BROKEN_STONE: return "SKY_HAV_MAT_STAIRS_BROKEN_STONE";
 		case SKY_HAV_MAT_MATERIAL_SKIN_LARGE: return "SKY_HAV_MAT_MATERIAL_SKIN_LARGE";
 		case SKY_HAV_MAT_ORGANIC: return "SKY_HAV_MAT_ORGANIC";
@@ -344,6 +352,9 @@ const char* NifFile::material_name(const SkyrimHavokMaterial& material) {
 		case SKY_HAV_MAT_HEAVY_WOOD: return "SKY_HAV_MAT_HEAVY_WOOD";
 		case SKY_HAV_MAT_MATERIAL_CHAIN: return "SKY_HAV_MAT_MATERIAL_CHAIN";
 		case SKY_HAV_MAT_DIRT: return "SKY_HAV_MAT_DIRT";
+		case 3312543676: return "SKY_HAV_MAT_GHOST";
+		case 3387452107: return "SKY_HAV_MAT_SKIN_METAL_LARGE";
+		case 3400476823: return "SKY_HAV_MAT_WEAPON_AXE_BLOCK";
 		case SKY_HAV_MAT_MATERIAL_ARMOR_LIGHT: return "SKY_HAV_MAT_MATERIAL_ARMOR_LIGHT";
 		case SKY_HAV_MAT_MATERIAL_SHIELD_LIGHT: return "SKY_HAV_MAT_MATERIAL_SHIELD_LIGHT";
 		case SKY_HAV_MAT_MATERIAL_COIN: return "SKY_HAV_MAT_MATERIAL_COIN";
@@ -352,50 +363,76 @@ const char* NifFile::material_name(const SkyrimHavokMaterial& material) {
 		case SKY_HAV_MAT_MATERIAL_ARROW: return "SKY_HAV_MAT_MATERIAL_ARROW";
 		case SKY_HAV_MAT_GLASS: return "SKY_HAV_MAT_GLASS";
 		case SKY_HAV_MAT_STONE: return "SKY_HAV_MAT_STONE";
+		case 3764646153: return "SKY_HAV_MAT_WATER_PUDDLE";
 		case SKY_HAV_MAT_CLOTH: return "SKY_HAV_MAT_CLOTH";
+		case 3855001958: return "SKY_HAV_MAT_SKIN_METAL_SMALL";
+		case 3895166727: return "SKY_HAV_MAT_WARD";
+		case 3934839107: return "SKY_HAV_MAT_WEB";
 		case SKY_HAV_MAT_MATERIAL_BLUNT_2HAND: return "SKY_HAV_MAT_MATERIAL_BLUNT_2HAND";
 		case SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM: return "SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM";
 	}
-	return "SKY_HAV_MAT_WOOD";
+	return "SKY_HAV_MAT_UNKNOWN";
 }
 
 SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_BROKEN_STONE") return SKY_HAV_MAT_BROKEN_STONE;
+	if (name == "SKY_HAV_MAT_WEAPON_BLADE_1HAND_BLOCK") return (SkyrimHavokMaterial)165778930;
+	if (name == "SKY_HAV_MAT_MEAT") return (SkyrimHavokMaterial)220124585;
+	if (name == "SKY_HAV_MAT_CARRIAGE_WHEEL") return (SkyrimHavokMaterial)322207473;
+	if (name == "SKY_HAV_MAT_METAL_LIGHT") return (SkyrimHavokMaterial)346811165;
 	if (name == "SKY_HAV_MAT_LIGHT_WOOD") return SKY_HAV_MAT_LIGHT_WOOD;
 	if (name == "SKY_HAV_MAT_SNOW") return SKY_HAV_MAT_SNOW;
 	if (name == "SKY_HAV_MAT_GRAVEL") return SKY_HAV_MAT_GRAVEL;
 	if (name == "SKY_HAV_MAT_MATERIAL_CHAIN_METAL") return SKY_HAV_MAT_MATERIAL_CHAIN_METAL;
 	if (name == "SKY_HAV_MAT_BOTTLE") return SKY_HAV_MAT_BOTTLE;
 	if (name == "SKY_HAV_MAT_WOOD") return SKY_HAV_MAT_WOOD;
+	if (name == "SKY_HAV_MAT_ASH") return (SkyrimHavokMaterial)534864873;
+	if (name == "SKY_HAV_MAT_STAIRS_METAL") return (SkyrimHavokMaterial)551270354;
 	if (name == "SKY_HAV_MAT_SKIN") return SKY_HAV_MAT_SKIN;
+	if (name == "SKY_HAV_MAT_WEAPON_BLUNT_1HAND_BLOCK") return (SkyrimHavokMaterial)593401068;
+	if (name == "SKY_HAV_MAT_INSECT") return (SkyrimHavokMaterial)668408902;
 	if (name == "SKY_HAV_MAT_BARREL") return SKY_HAV_MAT_BARREL;
 	if (name == "SKY_HAV_MAT_MATERIAL_CERAMIC_MEDIUM") return SKY_HAV_MAT_MATERIAL_CERAMIC_MEDIUM;
 	if (name == "SKY_HAV_MAT_MATERIAL_BASKET") return SKY_HAV_MAT_MATERIAL_BASKET;
 	if (name == "SKY_HAV_MAT_ICE") return SKY_HAV_MAT_ICE;
+	if (name == "SKY_HAV_MAT_STAIRS_GLASS") return (SkyrimHavokMaterial)880200008;
 	if (name == "SKY_HAV_MAT_STAIRS_STONE") return SKY_HAV_MAT_STAIRS_STONE;
+	if (name == "SW_HAV_MAT_THROWING_KNIFE") return (SkyrimHavokMaterial)1003342536;
 	if (name == "SKY_HAV_MAT_WATER") return SKY_HAV_MAT_WATER;
 	if (name == "SKY_HAV_MAT_MATERIAL_BLADE_1HAND") return SKY_HAV_MAT_MATERIAL_BLADE_1HAND;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOOK") return SKY_HAV_MAT_MATERIAL_BOOK;
 	if (name == "SKY_HAV_MAT_MATERIAL_CARPET") return SKY_HAV_MAT_MATERIAL_CARPET;
 	if (name == "SKY_HAV_MAT_SOLID_METAL") return SKY_HAV_MAT_SOLID_METAL;
 	if (name == "SKY_HAV_MAT_MATERIAL_AXE_1HAND") return SKY_HAV_MAT_MATERIAL_AXE_1HAND;
+	if (name == "SKY_HAV_MAT_WEAPON_BLADE_2HAND_BLOCK") return (SkyrimHavokMaterial)1312943906;
+	if (name == "SKY_HAV_MAT_ORGANIC_LARGE") return (SkyrimHavokMaterial)1322093133;
 	if (name == "SKY_HAV_MAT_STAIRS_WOOD") return SKY_HAV_MAT_STAIRS_WOOD;
 	if (name == "SKY_HAV_MAT_MUD") return SKY_HAV_MAT_MUD;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_SMALL") return SKY_HAV_MAT_MATERIAL_BOULDER_SMALL;
 	if (name == "SKY_HAV_MAT_STAIRS_SNOW") return SKY_HAV_MAT_STAIRS_SNOW;
 	if (name == "SKY_HAV_MAT_HEAVY_STONE") return SKY_HAV_MAT_HEAVY_STONE;
+	if (name == "SKY_HAV_MAT_CHARACTER_BUMPER") return (SkyrimHavokMaterial)1574477864;
+	if (name == "SKY_HAV_MAT_TRAP") return (SkyrimHavokMaterial)1591009235;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOWS_STAVES") return SKY_HAV_MAT_MATERIAL_BOWS_STAVES;
+	if (name == "SKY_HAV_MAT_ALDUIN") return (SkyrimHavokMaterial)1730220269;
+	if (name == "SKY_HAV_MAT_WEAPON_BOWS_AND_STAVES_BLOCK") return (SkyrimHavokMaterial)1763418903;
 	if (name == "SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS") return SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS;
 	if (name == "SKY_HAV_MAT_GRASS") return SKY_HAV_MAT_GRASS;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_LARGE") return SKY_HAV_MAT_MATERIAL_BOULDER_LARGE;
 	if (name == "SKY_HAV_MAT_MATERIAL_STONE_AS_STAIRS") return SKY_HAV_MAT_MATERIAL_STONE_AS_STAIRS;
 	if (name == "SKY_HAV_MAT_MATERIAL_BLADE_2HAND") return SKY_HAV_MAT_MATERIAL_BLADE_2HAND;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOTTLE_SMALL") return SKY_HAV_MAT_MATERIAL_BOTTLE_SMALL;
+	if (name == "SKY_HAV_MAT_BONE_ACTOR") return (SkyrimHavokMaterial)2058949504;
 	if (name == "SKY_HAV_MAT_SAND") return SKY_HAV_MAT_SAND;
 	if (name == "SKY_HAV_MAT_HEAVY_METAL") return SKY_HAV_MAT_HEAVY_METAL;
+	if (name == "SKY_HAV_MAT_ICE_FORM") return (SkyrimHavokMaterial)2431524493;
 	if (name == "SKY_HAV_MAT_DRAGON") return SKY_HAV_MAT_DRAGON;
 	if (name == "SKY_HAV_MAT_MATERIAL_BLADE_1HAND_SMALL") return SKY_HAV_MAT_MATERIAL_BLADE_1HAND_SMALL;
 	if (name == "SKY_HAV_MAT_MATERIAL_SKIN_SMALL") return SKY_HAV_MAT_MATERIAL_SKIN_SMALL;
+	if (name == "SW_HAV_MAT_METAL_GRATE") return (SkyrimHavokMaterial)2646218569;
+	if (name == "SKY_HAV_MAT_SKIN_SKELETON") return (SkyrimHavokMaterial)2742858142;
+	if (name == "SKY_HAV_MAT_WEAPON_BLUNT_1HAND") return (SkyrimHavokMaterial)2821299363;
+	if (name == "SKY_HAV_MAT_STAIRS_STONE_BROKEN") return (SkyrimHavokMaterial)2872791301;
 	if (name == "SKY_HAV_MAT_STAIRS_BROKEN_STONE") return SKY_HAV_MAT_STAIRS_BROKEN_STONE;
 	if (name == "SKY_HAV_MAT_MATERIAL_SKIN_LARGE") return SKY_HAV_MAT_MATERIAL_SKIN_LARGE;
 	if (name == "SKY_HAV_MAT_ORGANIC") return SKY_HAV_MAT_ORGANIC;
@@ -403,6 +440,9 @@ SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_HEAVY_WOOD") return SKY_HAV_MAT_HEAVY_WOOD;
 	if (name == "SKY_HAV_MAT_MATERIAL_CHAIN") return SKY_HAV_MAT_MATERIAL_CHAIN;
 	if (name == "SKY_HAV_MAT_DIRT") return SKY_HAV_MAT_DIRT;
+	if (name == "SKY_HAV_MAT_GHOST") return (SkyrimHavokMaterial)3312543676;
+	if (name == "SKY_HAV_MAT_SKIN_METAL_LARGE") return (SkyrimHavokMaterial)3387452107;
+	if (name == "SKY_HAV_MAT_WEAPON_AXE_BLOCK") return (SkyrimHavokMaterial)3400476823;
 	if (name == "SKY_HAV_MAT_MATERIAL_ARMOR_LIGHT") return SKY_HAV_MAT_MATERIAL_ARMOR_LIGHT;
 	if (name == "SKY_HAV_MAT_MATERIAL_SHIELD_LIGHT") return SKY_HAV_MAT_MATERIAL_SHIELD_LIGHT;
 	if (name == "SKY_HAV_MAT_MATERIAL_COIN") return SKY_HAV_MAT_MATERIAL_COIN;
@@ -411,7 +451,11 @@ SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_MATERIAL_ARROW") return SKY_HAV_MAT_MATERIAL_ARROW;
 	if (name == "SKY_HAV_MAT_GLASS") return SKY_HAV_MAT_GLASS;
 	if (name == "SKY_HAV_MAT_STONE") return SKY_HAV_MAT_STONE;
+	if (name == "SKY_HAV_MAT_WATER_PUDDLE") return (SkyrimHavokMaterial)3764646153;
 	if (name == "SKY_HAV_MAT_CLOTH") return SKY_HAV_MAT_CLOTH;
+	if (name == "SKY_HAV_MAT_SKIN_METAL_SMALL") return (SkyrimHavokMaterial)3855001958;
+	if (name == "SKY_HAV_MAT_WARD") return (SkyrimHavokMaterial)3895166727;
+	if (name == "SKY_HAV_MAT_WEB") return (SkyrimHavokMaterial)3934839107;
 	if (name == "SKY_HAV_MAT_MATERIAL_BLUNT_2HAND") return SKY_HAV_MAT_MATERIAL_BLUNT_2HAND;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM") return SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM;
 
