@@ -19,7 +19,7 @@ Ref<T> NifFile::FindBlockByName(const std::string& name) {
 	return NULL;
 }
 
-long long crc32(std::string& to_crc)
+long long crc32(std::string to_crc)
 {
 	transform(to_crc.begin(), to_crc.end(), to_crc.begin(), ::tolower);
 	long long crc = stoll(HkCRC::compute(to_crc), NULL, 16);
@@ -324,8 +324,6 @@ const char* NifFile::material_name(const SkyrimHavokMaterial& material) {
 		case SKY_HAV_MAT_MATERIAL_BOULDER_SMALL: return "SKY_HAV_MAT_MATERIAL_BOULDER_SMALL";
 		case SKY_HAV_MAT_STAIRS_SNOW: return "SKY_HAV_MAT_STAIRS_SNOW";
 		case SKY_HAV_MAT_HEAVY_STONE: return "SKY_HAV_MAT_HEAVY_STONE";
-		case SKY_HAV_MAT_CHARACTER_BUMPER: return "SKY_HAV_MAT_CHARACTER_BUMPER";
-		case SKY_HAV_MAT_TRAP: return "SKY_HAV_MAT_TRAP";
 		case SKY_HAV_MAT_MATERIAL_BOWS_STAVES: return "SKY_HAV_MAT_MATERIAL_BOWS_STAVES";
 		case SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS: return "SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS";
 		case SKY_HAV_MAT_GRASS: return "SKY_HAV_MAT_GRASS";
@@ -385,8 +383,6 @@ SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_SMALL") return SKY_HAV_MAT_MATERIAL_BOULDER_SMALL;
 	if (name == "SKY_HAV_MAT_STAIRS_SNOW") return SKY_HAV_MAT_STAIRS_SNOW;
 	if (name == "SKY_HAV_MAT_HEAVY_STONE") return SKY_HAV_MAT_HEAVY_STONE;
-	if (name == "SKY_HAV_MAT_CHARACTER_BUMPER") return SKY_HAV_MAT_CHARACTER_BUMPER;
-	if (name == "SKY_HAV_MAT_TRAP") return SKY_HAV_MAT_TRAP;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOWS_STAVES") return SKY_HAV_MAT_MATERIAL_BOWS_STAVES;
 	if (name == "SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS") return SKY_HAV_MAT_MATERIAL_WOOD_AS_STAIRS;
 	if (name == "SKY_HAV_MAT_GRASS") return SKY_HAV_MAT_GRASS;
