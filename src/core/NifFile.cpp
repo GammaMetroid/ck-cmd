@@ -369,6 +369,7 @@ const char* NifFile::material_name(const SkyrimHavokMaterial& material) {
 		case 3895166727: return "SKY_HAV_MAT_WARD";
 		case 3934839107: return "SKY_HAV_MAT_WEB";
 		case SKY_HAV_MAT_MATERIAL_BLUNT_2HAND: return "SKY_HAV_MAT_MATERIAL_BLUNT_2HAND";
+		case 3974071006: return "SW_HAV_MAT_STAIRS_METAL";
 		case SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM: return "SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM";
 	}
 	return "SKY_HAV_MAT_UNKNOWN";
@@ -457,6 +458,7 @@ SkyrimHavokMaterial NifFile::material_value(const string& name) {
 	if (name == "SKY_HAV_MAT_WARD") return (SkyrimHavokMaterial)3895166727;
 	if (name == "SKY_HAV_MAT_WEB") return (SkyrimHavokMaterial)3934839107;
 	if (name == "SKY_HAV_MAT_MATERIAL_BLUNT_2HAND") return SKY_HAV_MAT_MATERIAL_BLUNT_2HAND;
+	if (name == "SW_HAV_MAT_STAIRS_METAL") return (SkyrimHavokMaterial)3974071006;
 	if (name == "SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM") return SKY_HAV_MAT_MATERIAL_BOULDER_MEDIUM;
 
 	return (SkyrimHavokMaterial)crc32(name);
