@@ -5829,7 +5829,7 @@ bool FBXWrangler::SaveNif(const string& fileName, bool mergeNodes) {
 	vector<NiObjectRef> objects = RebuildVisitor(conversion_root, info).blocks;
 	bsx_flags_t calculated_flags = calculateSkyrimBSXFlags(objects, info);
 
-	if (!export_skin)
+	if ((!export_skin) && !(ends_with(fileName,"lod_0.nif") || ends_with(fileName,"lod_1.nif") || ends_with(fileName,"lod_2.nif") || ends_with(fileName,"lod_3.nif")))
 	{
 		//adjust for havok
 		if (!skinned_animations.empty())
