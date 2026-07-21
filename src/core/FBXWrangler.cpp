@@ -5338,7 +5338,7 @@ bool FBXWrangler::LoadMeshes(const std::string& fileName, const FBXImportOptions
 
 			conversion_root = parent;
             fs::path fullPath = fileName;
-            conversion_root->SetName(fullPath.stem().string().c_str());
+            conversion_root->SetName(fullPath.stem().string());
 
 			if (!hasNoTransform(root)) {
 				NiNodeRef proxyNiNode = new NiNode();
