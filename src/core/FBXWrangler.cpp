@@ -5830,7 +5830,7 @@ bool FBXWrangler::SaveNif(const string& fileName, bool mergeNodes) {
 	vector<NiObjectRef> objects = RebuildVisitor(conversion_root, info).blocks;
 	bsx_flags_t calculated_flags = calculateSkyrimBSXFlags(objects, info);
 
-    if ((!export_skin) && !(fileName.ends_with("lod_0.fbx") || fileName.ends_with("lod_1.fbx") || fileName.ends_with("lod_2.fbx") || fileName.ends_with("lod_3.fbx")))
+    if ((!export_skin) && !(ends_with(fileName,"lod_0.fbx") || ends_with(fileName,"lod_1.fbx") || ends_with(fileName,"lod_2.fbx") || ends_with(fileName,"lod_3.fbx")))
 	{
 		//adjust for havok
 		if (!skinned_animations.empty())
